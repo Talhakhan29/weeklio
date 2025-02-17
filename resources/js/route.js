@@ -4,7 +4,7 @@ import Login from './components/Login.vue';
 
 const routes = [
   { path: '/register', component: Registration },
-  { path: '/login', component: Login },
+  { path: '/', component: Login },
 ];
 
 const router = createRouter({
