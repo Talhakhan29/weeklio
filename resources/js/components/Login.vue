@@ -41,7 +41,6 @@ export default {
           if (response.data.status) {
               console.log("Login successful:", response.data);
               localStorage.setItem("token", response.data.token);
-              alert("You are logged in.");
               window.location.href = response.data.redirect;  
           } else {
               this.errorMessage = response.data.message || "Login failed";
