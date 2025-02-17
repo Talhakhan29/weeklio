@@ -12,15 +12,26 @@ class LoginController extends Controller
     public function check(Request $request)
     {
         $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password'=>['required', 'password'],
+            'email'    => 'required|email',
+            'password' => 'required',
         ]);
-        if(Auth::attempt($credentials))
-        {
-            return response()->json(['status'=>true, 'message'=>"Success"
-        ]);
+
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user || !\Hash::check($request->password, $user->password)) {
+            return response()->json([
+                'status'  => false,
+                'message' => 'Invalid email or password',
+            ], 401);
         }
-            return response()->json(['status'=>false, 'message'=>"Fail"
-    ]);
+
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        return response()->json([
+            'status'  => true,
+            'message' => 'Login successful',
+            'token'   => $token,
+            'user'    => $user,
+        ], 200);
     }
 }

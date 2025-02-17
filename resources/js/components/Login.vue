@@ -12,7 +12,7 @@
         <input v-model="login.password" type="password" class="w-full p-2 border rounded" required />
       </div>
       <div class="mb-4">
-        <p>If not registered go to <a href="/register" ><b> registeration page</b>  </a></p>
+        <p>If not registered go to <a href="/register"><b>registeration page</b></a></p>
       </div>
       <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded">Login</button>
     </form>
