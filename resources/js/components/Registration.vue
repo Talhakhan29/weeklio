@@ -17,8 +17,6 @@
       </div>
       <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded">Register</button>
     </form>
-
-    
     <p v-if="errorMessage" class="text-red-500 mt-2">{{ errorMessage }}</p>
   </div>
 </template>

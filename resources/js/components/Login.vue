@@ -37,11 +37,17 @@ export default {
   methods: {
     async loginForm() {
       try {
-        let response = await axios.post("http://127.0.0.1:8000/api/login", this.login);
-        console.log("Login successful:", response.data);
-        alert(" You are logged in.");
+          let response = await axios.post("http://127.0.0.1:8000/api/login", this.login);
+          if (response.data.status) {
+              console.log("Login successful:", response.data);
+              localStorage.setItem("token", response.data.token);
+              alert("You are logged in.");
+              window.location.href = response.data.redirect;  
+          } else {
+              this.errorMessage = response.data.message || "Login failed";
+         }
       } catch (error) {
-        this.errorMessage = error.response?.data?.message || "Login failed";
+          this.errorMessage = error.response?.data?.message || "Login failed";
       }
     },
   },

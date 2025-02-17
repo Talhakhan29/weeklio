@@ -32,6 +32,7 @@ class LoginController extends Controller
             'message' => 'Login successful',
             'token'   => $token,
             'user'    => $user,
+            'redirect' => url('/home')
         ], 200);
     }
 }
