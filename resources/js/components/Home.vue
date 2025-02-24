@@ -15,9 +15,9 @@
     </div>
     <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded">Save</button>
   </form>
-  <div class="card-body">
-        <div class="table-responsive NTRC-table">
-            <table class="table table-bordered table-hover NTRC-table-list"> 
+  <div class="card-body w-100">
+        <div class="table-responsive">
+            <table class="table table-bordered w-100"> 
                 <thead>
                     <tr>
                         <th>ID</th>
