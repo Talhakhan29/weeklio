@@ -18,4 +18,6 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::controller(TaskController::class)->group(function(){
     Route::post('/store', 'store');
     Route::get('/fetch', 'fetch');
+    Route::post('/delete', 'delete');
+
 });

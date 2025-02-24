@@ -33,7 +33,10 @@
                         <td>{{ task.name }}</td>
                         <td>{{ task.date }}</td>
                         <td>{{ task.assigned_to }}</td>
-                        <td></td>
+                        <td>
+                            <button @click="update(task)"></button>
+                            <button @click="confirmDelete(task.id)">Delete</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -75,6 +78,17 @@ export default {
       } catch (error) {
         this.errorMessage = error.response?.data?.message || "Failed";
       }
+    },
+    confirmDelete(id) {
+        this.delete(id);
+    },
+    delete(id) {
+        axios.post("http://127.0.0.1:8000/api/delete", {'id':id }).then((response) => {
+            this.list();
+        })
+        .catch((error) => {
+            return "Not Working";
+        });
     },
   },
   created() {
