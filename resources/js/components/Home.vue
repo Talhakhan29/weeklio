@@ -24,6 +24,7 @@
                         <th>Task</th>
                         <th>Due Date</th>
                         <th>Assigned To</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,6 +33,7 @@
                         <td>{{ task.name }}</td>
                         <td>{{ task.date }}</td>
                         <td>{{ task.assigned_to }}</td>
+                        <td></td>
                     </tr>
                 </tbody>
             </table>
