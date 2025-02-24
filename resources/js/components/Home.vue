@@ -85,8 +85,7 @@ export default {
     delete(id) {
         axios.post("http://127.0.0.1:8000/api/delete", {'id':id }).then((response) => {
             this.list();
-        }).catch((error) => {
-            
+        }).catch((error) => { 
             return "Not Working";
         });
     },
